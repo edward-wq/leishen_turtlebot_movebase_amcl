@@ -1,7 +1,0 @@
-TrajectoryPlannerROS:
-  max_vel_x: 1.0
-  max_vel_theta: 0.8
-  min_vel_theta: -0.8
-  
-  pdist_scale: 1.0
-  gdist_scale: 0.75
