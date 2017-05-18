@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<robot name="aiibot">
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.51 0.426 .003"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.165 0 0"/>
+            <material name="gray">
+                <color rgba="0.4 0.4 0.4 1"/>
+            </material>
+        </visual>
+    </link>
+
+    <link name="right_front_wheel">
+        <visual>
+            <geometry>
+                <cylinder length="0.015" radius="0.048"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="right_front_wheel_joint" type="continuous">
+        <axis xyz="0 0 1"/>
+        <parent link="base_link"/>
+        <child link="right_front_wheel"/>
+        <origin rpy="0 1.57075 1.57075" xyz="0 -0.2255 -0.0255"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+
+    <link name="left_front_wheel">
+        <visual>
+            <geometry>
+                <cylinder length="0.013" radius="0.049"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="left_front_wheel_joint" type="continuous">
+        <axis xyz="0 0 1"/>
+        <parent link="base_link"/>
+        <child link="left_front_wheel"/>
+        <origin rpy="0 1.57075 1.57075" xyz="0 0.2255 -0.0255"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <link name="back_wheel_base">
+        <visual>
+            <geometry>
+                <box size="0.04 0.04 0.04"/>
+            </geometry>
+        <material name="dark">
+            <color rgba="0.2 0.2 0.2 1.0"/>
+        </material>
+        </visual>
+    </link>
+    <joint name="back_wheel_base_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="back_wheel_base"/>
+        <origin xyz="-0.35 0 -0.02"/>
+    </joint>
+
+    <link name="back_wheel">
+        <visual>
+            <geometry>
+                <cylinder length=".02" radius="0.027"/>
+            </geometry>
+            <material name="white">
+                <color rgba="1.0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="back_wheel_joint" type="continuous">
+        <axis xyz="0 0 1"/>
+        <parent link="back_wheel_base"/>
+        <child link="back_wheel"/>
+        <origin rpy="0 1.57075 1.57075" xyz="0 0 -0.027"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <link name="shelf_left">
+        <visual>
+            <geometry>
+                <box size="0.25 0.001 .09"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="light">
+                <color rgba="0.7 0.7 0.7 1"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="shelf_left_joint" type="continuous">
+        <axis xyz="0 0 1"/>
+        <parent link="base_link"/>
+        <child link="shelf_left"/>
+        <origin rpy="0 0 0" xyz="-0.17 -0.1495 0.0465"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <link name="shelf_right">
+        <visual>
+            <geometry>
+                <box size="0.25 0.001 .09"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="light">
+                <color rgba="0.7 0.7 0.7 1"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="shelf_right_joint" type="continuous">
+        <axis xyz="0 0 1"/>
+        <parent link="base_link"/>
+        <child link="shelf_right"/>
+        <origin rpy="0 0 0" xyz="-0.17 0.1495 0.0465"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <link name="shelf_top">
+        <visual>
+            <geometry>
+                <box size="0.25 0.30 .001"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="light">
+                <color rgba="0.7 0.7 0.7 1"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="shelf_top_joint" type="continuous">
+        <axis xyz="0 0 1"/>
+        <parent link="base_link"/>
+        <child link="shelf_top"/>
+        <origin rpy="0 0 0" xyz="-0.17 0 0.091"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <link name="shelf_lidar_front">
+        <visual>
+            <geometry>
+                <box size="0.001 0.10 .07"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="dark">
+                <color rgba="0.2 0.2 0.2 1"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="shelf_lidar_front_joint" type="continuous">
+        <axis xyz="0 0 1"/>
+        <parent link="shelf_top"/>
+        <child link="shelf_lidar_front"/>
+        <origin rpy="0 0 0" xyz="-0.0845 0 0.0355"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <link name="shelf_lidar_top">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 .001"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="dark">
+                <color rgba="0.2 0.2 0.2 1"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="shelf_lidar_top_joint" type="continuous">
+        <axis xyz="0 0 1"/>
+        <parent link="shelf_lidar_front"/>
+        <child link="shelf_lidar_top"/>
+        <origin rpy="0 0 0" xyz="0.0495 0 0.0345"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <link name="lidar_up">
+        <visual>
+            <geometry>
+                <cylinder length="0.035" radius="0.01"/>
+            </geometry>
+        <material name="black">
+            <color rgba="0 0 0 1"/>
+        </material>
+        </visual>
+    </link>
+    <joint name="lidar_up_joint" type="fixed">
+        <parent link="shelf_lidar_top"/>
+        <child link="lidar_up"/>
+        <origin xyz="0 0 0.018"/>
+    </joint>
+
+    <link name="laser">
+        <visual>
+            <geometry>
+                <cylinder length="0.025" radius="0.035"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="base_liser_joint" type="fixed">
+        <parent link="lidar_up"/>
+        <child link="laser"/>
+        <origin xyz="0 0 0.03" rpy="0 0 3.1415927" />
+    </joint>
+
+     <link name="kinect_shelf">
+        <visual>
+            <geometry>
+                <box size="0.04 0.1 .18"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="light_yellow">
+                <color rgba="0.6 0.6 0.2 1"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="kinect_shelf_joint" type="continuous">
+        <axis xyz="0 0 1"/>
+        <parent link="shelf_lidar_front"/>
+        <child link="kinect_shelf"/>
+        <origin rpy="0 0 0" xyz="-0.0205 0 0.055"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+    <link name="kinect_up">
+        <visual>
+            <geometry>
+                <cylinder length="0.02" radius="0.005"/>
+            </geometry>
+        <material name="black">
+            <color rgba="0 0 0 1"/>
+        </material>
+        </visual>
+    </link>
+    <joint name="kinect_up_joint" type="fixed">
+        <parent link="kinect_shelf"/>
+        <child link="kinect_up"/>
+        <origin xyz="0 0 0.10"/>
+    </joint>
+
+     <link name="kinect">
+        <visual>
+            <geometry>
+                <box size="0.035 0.18 .02"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+    </link>
+    <joint name="kinect_joint" type="continuous">
+        <axis xyz="0 0 1"/>
+        <parent link="kinect_up"/>
+        <child link="kinect"/>
+        <origin rpy="0 0 0" xyz="0 0 0.02"/>
+        <limit effort="100" velocity="100"/>
+        <joint_properties damping="0.0" friction="0.0"/>
+    </joint>
+
+</robot>
+

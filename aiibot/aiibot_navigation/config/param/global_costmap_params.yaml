@@ -1,0 +1,15 @@
+# 全局代价地图，使用/map作为全局坐标
+global_frame: map
+
+# rolling_window用于配置在机器人运动过程中，代价地图始终以机器人为中心
+rolling_window: false
+
+track_unknown_space: true
+
+# 两种类型：voxel 和 costmap，voxel 表示3D视图，costmap 表示2D视图
+# map_type: costmap
+
+plugins:
+  - {name: static,                    type: "costmap_2d::StaticLayer"}
+  - {name: inflation,               type: "costmap_2d::InflationLayer"}
+

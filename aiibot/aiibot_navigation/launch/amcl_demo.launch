@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- Run the map server -->
+  <arg name="map_file" default="/home/wangqi/catkin_ws/src/aiibot/aiibot_navigation/maps/G_lab.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  
+  <include file="$(find aiibot_navigation)/launch/amcl.launch" />
+ 
+  <include file="$(find aiibot_navigation)/launch/move_base.launch">
+    <arg name="no_map" value="false"/>
+  </include>
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aiibot_rviz_launchers)/rviz/amcl.rviz" output="screen"/>
+
+</launch>

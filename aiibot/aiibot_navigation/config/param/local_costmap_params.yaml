@@ -1,0 +1,12 @@
+# 对于局部代价地图，使用量程坐标作为全局坐标
+global_frame: /odom
+
+# rolling_window用于配置在机器人运动过程中，代价地图始终以机器人为中心
+rolling_window: true
+
+# 分辨率
+resolution: 0.01
+
+plugins:
+  - {name: obstacles_laser,   type: "costmap_2d::ObstacleLayer"}
+  - {name: inflation,               type: "costmap_2d::InflationLayer"}

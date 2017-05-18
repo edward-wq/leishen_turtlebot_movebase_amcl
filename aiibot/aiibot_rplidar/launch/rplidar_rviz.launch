@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find aiibot_rplidar)/launch/rplidar.launch" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aiibot_rplidar)/rviz/rplidar.rviz" />
+</launch>

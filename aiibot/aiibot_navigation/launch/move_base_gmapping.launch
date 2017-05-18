@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!--- Run gmapping -->
+ <include file="$(find aiibot_navigation)/launch/gmapping.launch">
+     <arg name="scan_topic" value="laser_scan"/>
+ </include>
+  
+<!--- Run Move Base -->
+  <include file="$(find aiibot_navigation)/launch/move_base.launch">
+    <arg name="no_map" value="false"/>
+  </include>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aiibot_rviz_launchers)/rviz/movebase.rviz" output="screen"/>
+
+</launch>
