@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!--- Run gmapping -->
+  <include file="$(find aiibot_navigation)/launch/gmapping.launch">
+    <arg name="scan_topic" value="laser_scan"/>
+  </include>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find aiibot_rviz_launchers)/rviz/gmapping.rviz" output="screen"/>
+
+</launch>
